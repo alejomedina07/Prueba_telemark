@@ -1,0 +1,10 @@
+extends ./layout/layout
+
+block header
+  include ./inclusiones/header
+block footer
+  include ./inclusiones/footer
+block content
+
+  #main
+    div(ng-view='')

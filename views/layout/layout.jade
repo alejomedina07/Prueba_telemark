@@ -1,0 +1,21 @@
+- var stylesheets = ["/static/bootstrap/dist/css/bootstrap.css", "/static/font-awesome/css/font-awesome.min.css", "/static/css/estilo.css"]
+- var javascripts = ["/static/jquery/dist/jquery.js", "/static/bootstrap/dist/js/bootstrap.js", "/static/angular/angular.js", "/static/angular-route/angular-route.js", "/static/js/principal.js"]
+doctype html
+html(ng-app='angularRoutingApp')
+  head
+    meta(charset='utf-8')
+    title= "SEMILLERO"
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(keywords="semillero")
+    meta(description="semillero")
+    each stylesheet in stylesheets
+      link(rel='stylesheet', href="#{stylesheet}")
+    each javascript in javascripts
+      script(src="#{javascript}")
+
+    
+  body(ng-controller='mainController')
+    block header
+    block content
+    block footer
