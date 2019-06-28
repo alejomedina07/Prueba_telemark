@@ -5,6 +5,12 @@ block header
 block footer
   include ./inclusiones/footer
 block content
-
-  #main
-    div(ng-view='')
+  md-content(style='height:100%', layout='column', layout-aling='center center')
+    span(flex)
+    div(layout='row', layout-xs='column', layout-align='center center')
+      div(flex='5', hide-xs='hide-xs')
+      div(flex='90')
+        div(ng-view='')
+      div(flex='5', hide-sm='hide-sm', hide-xs='hide-xs')
+    span(flex)
+    //- div(ng-view='')

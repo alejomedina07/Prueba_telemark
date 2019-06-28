@@ -1,9 +1,10 @@
 var express = require('express'),
   path = require('path'),
   bodyParser = require('body-parser'),
+  mongoose = require ('mongoose'),
   app = express();
 
-require('mongoose').connect('mongodb://localhost/semillero');
+mongoose.connect('mongodb://localhost/telemarck');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

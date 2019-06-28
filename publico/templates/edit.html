@@ -1,0 +1,66 @@
+<md-card class="md-whiteframe-6dp">
+  <md-toolbar class="md-raised md-hue-3 md-scroll-shrink" layout="row" layout-align="center center">
+    <b>EDITAR USUARIO</b>
+  </md-toolbar>
+  <md-content layout-padding>
+    <br>
+    <form ng-submit="guardar()" name="usuario" >
+      <div layout="row" layout-xs="column">
+        <md-input-container flex layout-margin>
+          <label>Nombres</label>
+          <input required name="nombres" ng-model="form.nombres">
+          <div ng-messages="projectForm.nombres.$error">
+            <div ng-message="required">Este campo es requerido.</div>
+          </div>
+        </md-input-container>
+        <md-input-container flex layout-margin>
+          <label>Apellidos</label>
+          <input required name="apellidos" ng-model="form.apellidos">
+          <div ng-messages="projectForm.apellidos.$error">
+            <div ng-message="required">Este campo es requerido.</div>
+          </div>
+        </md-input-container>
+      </div>
+      <div layout="row" layout-xs="column">
+        <md-input-container flex layout-margin>
+          <label>DNI</label>
+          <input required name="DNI" ng-model="form.DNI">
+          <div ng-messages="projectForm.DNI.$error">
+            <div ng-message="required">Este campo es requerido.</div>
+          </div>
+        </md-input-container>
+        <md-input-container flex layout-margin>
+          <label>Correo</label>
+          <input required name="correo" type="email" ng-model="form.correo">
+          <div ng-messages="projectForm.correo.$error">
+            <div ng-message="required">Este campo es requerido.</div>
+          </div>
+        </md-input-container>
+      </div>
+      <div class="fechas-usuario" layout="row" layout-xs="column" layout-align="center center">
+
+        <md-input-container flex layout-margin >
+          <label>Usuario de red</label>
+          <input required name="usuarioRed" ng-model="form.usuarioRed">
+          <div ng-messages="projectForm.usuarioRed.$error">
+            <div ng-message="required">Este campo es requerido.</div>
+          </div>
+        </md-input-container>
+        <b class="fecha-ingreso">Fecha de Nacimiento</b>
+        <md-datepicker md-current-view="year" ng-model="form.fechaNacimiento" md-placeholder="Ingrese Fecha"></md-datepicker>
+
+        <b>Fecha de Baja</b>
+        <md-datepicker ng-model="form.fechaBaja" md-placeholder="Ingrese Fecha"></md-datepicker>
+
+
+      </div>
+
+      <div layout="row">
+        <span flex></span>
+        <md-button class="md-raised" href="#/list">Lista</md-button>
+        <md-button class="md-raised md-primary" type="submit"> Guardar</md-button>
+      </div>
+
+    </form>
+  </md-content>
+</md-card>

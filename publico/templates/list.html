@@ -1,0 +1,62 @@
+<md-card class="md-whiteframe-6dp">
+  <md-toolbar class="md-raised md-hue-3 md-scroll-shrink" layout="row" layout-align="center center">
+    <span flex></span>
+    <b>LISTA DE USUARIOS</b>
+    <span flex></span>
+    <md-button href="#/form" class="md-raised">Agregar</md-button>
+  </md-toolbar>
+  <md-content layout-padding>
+    <md-progress-linear ng-if="loading" md-mode="indeterminate"></md-progress-linear>
+    <table class="responsive-table-input-matrix">
+      <thead>
+      <tr>
+        <th class="cursor" ng-click="sortBy('nombres')">Nombres
+          <span>&nbsp;</span>
+          <i ng-if="sortField == 'nombres'" class="fa fa-sort-alpha-{{reverseOrder ? 'desc' : 'asc'}}" aria-hidden="true"></i>
+        </th>
+        <th class="cursor" ng-click="sortBy('apellidos')">Apellidos
+          <span>&nbsp;</span>
+          <i ng-if="sortField == 'apellidos'" class="fa fa-sort-alpha-{{reverseOrder ? 'desc' : 'asc'}}" aria-hidden="true"></i>
+        </th>
+        <th class="cursor" ng-click="sortBy('dni')">DNI
+          <span>&nbsp;</span>
+          <i ng-if="sortField == 'dni'" class="fa fa-sort-alpha-{{reverseOrder ? 'desc' : 'asc'}}" aria-hidden="true"></i>
+        </th>
+        <th class="cursor" ng-click="sortBy('correo')">Correo
+          <span>&nbsp;</span>
+          <i ng-if="sortField == 'correo'" class="fa fa-sort-alpha-{{reverseOrder ? 'desc' : 'asc'}}" aria-hidden="true"></i>
+        </th>
+        <th class="cursor" ng-click="sortBy('usuarioDeRed')">Usuario de Red
+          <span>&nbsp;</span>
+          <i ng-if="sortField == 'usuarioDeRed'" class="fa fa-sort-alpha-{{reverseOrder ? 'desc' : 'asc'}}" aria-hidden="true"></i>
+        </th>
+        <th class="cursor" ng-click="sortBy('fechaNacimiento')">Fecha de Nacimiento
+          <span>&nbsp;</span>
+          <i ng-if="sortField == 'fechaNacimiento'" class="fa fa-sort-alpha-{{reverseOrder ? 'desc' : 'asc'}}" aria-hidden="true"></i>
+        </th>
+        <th class="cursor" ng-click="sortBy('fechaBaja')">Fecha de Baja
+          <span>&nbsp;</span>
+          <i ng-if="sortField == 'fechaBaja'" class="fa fa-sort-alpha-{{reverseOrder ? 'desc' : 'asc'}}" aria-hidden="true"></i>
+        </th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr ng-repeat="user in users | orderBy:sortField:reverseOrder">
+        <td> {{user.nombres}}</td>
+        <td> {{user.apellidos}}</td>
+        <td> {{user.DNI}} </td>
+        <td> {{user.correo}} </td>
+        <td> {{user.usuarioRed}} </td>
+        <td> {{user.fechaNacimiento  | date : 'longDate' }} </td>
+        <td> {{user.fechaBaja | date : 'medium' }} </td>
+        <td >
+          <a href="#/edit/{{user._id}}"><i class="fa fa-pencil icon-list" aria-hidden="true"></i></a>
+          <a class="cursor icon-list" ng-click="delete($event, user._id)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </md-content>
+</md-card>

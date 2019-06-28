@@ -1,21 +1,34 @@
 - var stylesheets = ["/static/bootstrap/dist/css/bootstrap.css", "/static/font-awesome/css/font-awesome.min.css", "/static/css/estilo.css"]
-- var javascripts = ["/static/jquery/dist/jquery.js", "/static/bootstrap/dist/js/bootstrap.js", "/static/angular/angular.js", "/static/angular-route/angular-route.js", "/static/js/principal.js"]
+- var javascripts = ["/static/jquery/dist/jquery.js", "/static/bootstrap/dist/js/bootstrap.js", "/static/js/principal.js", "/static/js/controladores/list.js", "/static/js/controladores/form.js", "/static/js/controladores/edit.js"]
+//- - var javascripts = ["/static/jquery/dist/jquery.js", "/static/bootstrap/dist/js/bootstrap.js", "/static/angular/angular.js", "/static/angular-route/angular-route.js", "/static/js/principal.js"]
 doctype html
 html(ng-app='angularRoutingApp')
   head
     meta(charset='utf-8')
-    title= "SEMILLERO"
+    title= "Telemark"
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(keywords="semillero")
-    meta(description="semillero")
+    meta(keywords="Telemark")
+    meta(description="Telemark")
     each stylesheet in stylesheets
       link(rel='stylesheet', href="#{stylesheet}")
+      link(rel='stylesheet', href='https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css')
     each javascript in javascripts
       script(src="#{javascript}")
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js')
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js')
+
+      script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js')
+      script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js')
+      script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js')
+      // Angular Material Library
+      script(src='https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js')
+
+      
 
     
   body(ng-controller='mainController')
-    block header
-    block content
-    block footer
+    md-content(style='height:100%', layout='column', layout-aling='center center')
+      block header
+      block content
+      block footer

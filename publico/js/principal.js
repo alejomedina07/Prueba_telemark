@@ -1,5 +1,5 @@
 // Creación del módulo
-var angularRoutingApp = angular.module('angularRoutingApp', ['ngRoute']);
+var angularRoutingApp = angular.module('angularRoutingApp', ['ngRoute', 'ngMaterial']);
 
 // Configuración de las rutas
 angularRoutingApp.config(function($routeProvider) {
@@ -9,13 +9,17 @@ angularRoutingApp.config(function($routeProvider) {
 			templateUrl	: 'static/templates/home.html',
 			controller 	: 'mainController'
 		})
-		.when('/acerca', {
-			templateUrl : 'static/templates/acerca.html',
-			controller 	: 'aboutController'
+		.when('/list', {
+			templateUrl : 'static/templates/list.html',
+			controller 	: 'listController'
 		})
-		.when('/contacto', {
-			templateUrl : 'static/templates/contacto.html',
-			controller 	: 'contactController'
+		.when('/form', {
+			templateUrl : 'static/templates/form.html',
+			controller 	: 'formController'
+		})
+		.when('/edit/:id_user', {
+			templateUrl : 'static/templates/edit.html',
+			controller 	: 'editController'
 		})
 		.when('/error', {
 			templateUrl : 'static/templates/error.html',
@@ -26,13 +30,9 @@ angularRoutingApp.config(function($routeProvider) {
 });
 
 angularRoutingApp.controller('mainController', function($scope) {
-	$scope.message = 'Hola, Mundo! página de inicio';
+	$scope.menu = [{text:'Lista de Usuarios', link:'#/list'}, {text:'Crear Usuario', link:'#/form'}];
 });
 
-angularRoutingApp.controller('aboutController', function($scope) {
-	$scope.message = 'Esta es la página "Acerca de"';
-});
-
-angularRoutingApp.controller('contactController', function($scope) {
+angularRoutingApp.controller('formController', function($scope) {
 	$scope.message = 'Esta es la página de "Contacto", aquí podemos poner un formulario';
 });
